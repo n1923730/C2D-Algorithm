@@ -10,7 +10,10 @@ def get_data():
     if(not os.path.exists(INPUT_FOLDER)): return
      
     onlyfiles = [f for f in os.listdir(INPUT_FOLDER) if os.path.isfile(os.path.join(INPUT_FOLDER, f))]
-    print("os.listdir(): " + os.listdir(INPUT_FOLDER))
+    print("os.listdir(): ")
+    for entry in os.listdir(INPUT_FOLDER):
+        print(entry)
+
     match len(onlyfiles):
         case 0:
             print("keine Dateien gefunden")
