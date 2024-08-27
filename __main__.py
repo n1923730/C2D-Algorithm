@@ -3,7 +3,7 @@ import os
 import os.path
 from pathlib import Path
 
-INPUT_FOLDER = "./data/inputs"
+INPUT_FOLDER = "./data/inputs/0"
 OUTPUT_FOLDER = "./data/outputs"
 
 def get_data():
@@ -33,6 +33,8 @@ def get_data():
             data = read_file.read()
             read_file.close()
             print("Found " + len(onlyfiles) + " Files. Data = " + data)
+
+
 
     return data
 
