@@ -3,14 +3,14 @@ import os
 import os.path
 from pathlib import Path
 
-INPUT_FOLDER = "./data/inputs/0"
+INPUT_FOLDER = "./data/inputs"
 OUTPUT_FOLDER = "./data/outputs"
 
 def get_data():
     if(not os.path.exists(INPUT_FOLDER)): return
      
     onlyfiles = [f for f in os.listdir(INPUT_FOLDER) if os.path.isfile(os.path.join(INPUT_FOLDER, f))]
-
+    print("os.listdir(): " + os.listdir(INPUT_FOLDER))
     match len(onlyfiles):
         case 0:
             print("keine Dateien gefunden")
