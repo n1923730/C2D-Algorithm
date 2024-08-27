@@ -3,7 +3,7 @@ import os
 import os.path
 from pathlib import Path
 
-INPUT_FOLDER = "./data/inputs"
+INPUT_FOLDER = "./data/inputs/ea6890f851252e0646ab4887c40603182e42ab684f597f5731f02cfe9efe5be0"
 OUTPUT_FOLDER = "./data/outputs"
 
 def get_data():
