@@ -16,10 +16,16 @@ def get_data():
         case 0:
             print("keine Dateien gefunden")
         case 1: 
-            read_file = open(INPUT_FOLDER + "/" + onlyfiles[0], "r")
-            data = read_file.read()
-            read_file.close()
-            print("Found axactly 1 File. Data = " + data)
+            if(onlyfiles[0].__contains__('.json')):
+                with open(INPUT_FOLDER + "/" + onlyfiles[0]) as file:
+                    data = json.load(file)
+                    print("Found exactly 1 File: " + onlyfiles[0])
+                    print("It's a json file. Data = " + str(data))
+            else:
+                read_file = open(INPUT_FOLDER + "/" + onlyfiles[0], "r")
+                data = read_file.read()
+                read_file.close()
+                print("Found exactly 1 File: " + onlyfiles[0] + ". Data = " + data)
         case _:
             read_file = open('/data/inputs/algoCustomData.json', "r")
             data = read_file.read()
@@ -31,7 +37,9 @@ def get_data():
 
 def compute_average(data):
     if (data and len(data)):
-        json_data = json.loads(data)
+        if(type(data) == type(str)):
+            json_data = json.loads(data)
+        else: json_data = data
         length = 0
         avg = 0
         for point in json_data:
