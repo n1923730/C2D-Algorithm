@@ -14,11 +14,15 @@ def get_data():
     for entry in os.listdir(INPUT_FOLDER):
         print(entry)
         if os.path.isdir(os.path.join(INPUT_FOLDER, entry)):
-            for entry in os.listdir(INPUT_FOLDER + entry):
-                print(" --  " + entry)
+            for entry1 in os.listdir(INPUT_FOLDER + entry):
+                print(" --  " + entry1)
                 if os.path.isdir(os.path.join(INPUT_FOLDER, entry)):
                     for entry2 in os.listdir(INPUT_FOLDER + entry2):
                         print("  ----  " + entry2)
+                read_file = open(INPUT_FOLDER + "/" + entry + "/" + entry1 , "r")
+                print(read_file.read())
+        read_file = open(INPUT_FOLDER + "/" + entry , "r")
+        print(read_file.read())    
 
 
 
