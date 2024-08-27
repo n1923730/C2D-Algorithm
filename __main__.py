@@ -13,6 +13,14 @@ def get_data():
     print("os.listdir(): ")
     for entry in os.listdir(INPUT_FOLDER):
         print(entry)
+        if os.path.isdir(os.path.join(INPUT_FOLDER, entry)):
+            for entry in os.listdir(INPUT_FOLDER + entry):
+                print(" --  " + entry)
+                if os.path.isdir(os.path.join(INPUT_FOLDER, entry)):
+                    for entry2 in os.listdir(INPUT_FOLDER + entry2):
+                        print("  ----  " + entry2)
+
+
 
     match len(onlyfiles):
         case 0:
