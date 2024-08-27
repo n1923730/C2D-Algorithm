@@ -10,16 +10,27 @@ def get_data():
     if(not os.path.exists(INPUT_FOLDER)): return
      
     onlyfiles = [f for f in os.listdir(INPUT_FOLDER) if os.path.isfile(os.path.join(INPUT_FOLDER, f))]
+    print(len(onlyfiles))
 
-    if(len(onlyfiles) == 1):
-        read_file = open(INPUT_FOLDER + "/" + onlyfiles[0], "r")
-        data = read_file.read()
-        read_file.close()
+    match len(onlyfiles):
+        case 0:
+            print("keine Dateien gefunden")
+        case 1: 
+            read_file = open(INPUT_FOLDER + "/" + onlyfiles[0], "r")
+            data = read_file.read()
+            read_file.close()
+            print("Found axactly 1 File. Data = " + data)
+        case _:
+            read_file = open('/data/inputs/algoCustomData.json', "r")
+            data = read_file.read()
+            read_file.close()
+            print("Found " + len(onlyfiles) + " Files. Data = " + data)
+
     return data
 
 
 def compute_average(data):
-    if (data):
+    if (data and len(data)):
         json_data = json.loads(data)
         length = 0
         avg = 0
