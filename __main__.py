@@ -10,7 +10,6 @@ def get_data():
     if(not os.path.exists(INPUT_FOLDER)): return
      
     onlyfiles = [f for f in os.listdir(INPUT_FOLDER) if os.path.isfile(os.path.join(INPUT_FOLDER, f))]
-    print(len(onlyfiles))
 
     match len(onlyfiles):
         case 0:
@@ -21,6 +20,9 @@ def get_data():
                     data = json.load(file)
                     print("Found exactly 1 File: " + onlyfiles[0])
                     print("It's a json file. Data = " + str(data))
+                    print("file contains this: ")
+                read_file = open(INPUT_FOLDER + "/" + onlyfiles[0], "r")
+                print(read_file.read())
             else:
                 read_file = open(INPUT_FOLDER + "/" + onlyfiles[0], "r")
                 data = read_file.read()
